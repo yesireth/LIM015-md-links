@@ -1,4 +1,29 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "description": " Es una libreria que se esta construyendo",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yesireth/LIM015-md-links.git"
+  },
+  "author": "yesireth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yesireth/LIM015-md-links/issues"
+  },
+  "homepage": "https://github.com/yesireth/LIM015-md-links#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "jest": "^27.1.1"
+  }
 }
