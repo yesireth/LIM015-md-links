@@ -1,14 +1,14 @@
 const path = require('../src/app.js')
-
+// ojooooooooooooo const mock = ''
 describe('existsPath', () => {
   it('Deberia ser una función', () => {
     expect(typeof path.existsPath).toBe('function')
   })
   it('Deberia retornar si existe la ruta ', () => {
-    expect(path.existsPath('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\README.md')).toBe(true)
+    expect(path.existsPath('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\README.md')).toBeTruthy()
   })
   it('Deberia retornar que no existe la ruta', () => {
-    expect(path.existsPath('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\READMEEEE.md')).toBe(false)
+    expect(path.existsPath('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\READMEEEE.md')).toBeTruthy()
   })
 })
 describe('pathAbsolute ', () => {
@@ -16,10 +16,10 @@ describe('pathAbsolute ', () => {
     expect(typeof path.pathAbsolute).toBe('function')
   })
   it('Deberia retornar si existe la ruta ', () => {
-    expect(path.pathAbsolute('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\mdlinks.md')).toBe(true)
+    expect(path.pathAbsolute('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\mdlinks.md')).toBeTruthy()
   })
   it('Deberia retornar que no es absoluta la ruta', () => {
-    expect(path.existsPath('READMEEEE.md')).toBe(false)
+    expect(path.existsPath('READMEEEE.md')).toBeFalsy()
   })
 })
 describe('pathConvertToAbs ', () => {
@@ -35,7 +35,7 @@ describe('patDirectory ', () => {
     expect(typeof path.patDirectory).toBe('function')
   })
   it('Deberia retonar true si es directorio', () => {
-    expect(path.patDirectory('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src')).toBe(true)
+    expect(path.patDirectory('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src')).toBeTruthy()
   })
 })
 describe('readFileAndDirectory ', () => {
