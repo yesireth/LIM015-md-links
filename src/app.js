@@ -1,8 +1,9 @@
 const fs = require('fs')
-const chalk = require('chalk')
+// const chalk = require('chalk')
 const path = require('path')
-const resolve = require('path').resolve
-const userPath = process.argv[2]
+// const resolve = require('path').resolve
+const fetch = require('node-fetch')
+// const userPath = process.argv[2]
 // onsole.log(marked)
 // ************ PARA SABER SI EXISTE LA RUTA *************** //
 const existsPath = (route) => {
@@ -65,20 +66,41 @@ const extractTheLinks = (route) => {
   })
   return arryLinks
 }
-console.log(extractTheLinks(userPath))
-//   readFileAndDirectory(route).forEach((file) => {
-//     renderer.link = (href, title, text) => {
-//       arryLinks.push({
-//         href: href,
-//         title: text,
-//         file: paths
-//       })
-//     }
-//     marked(fs.readFileSync(file), { renderer })
-//   })
-//   const filteredLinks = arryLinks.filter(url => url.href.slice(0, 4) == 'http')
-//   return filteredLinks
-// }
+const router = 'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src'
+const objLinks = extractTheLinks(router)
+
+const confirmOptions = (links) => {
+  const arrayPromise = links.map((element) => {
+    return fetch(element.href)
+      .then((response) => {
+        const objResponse = {
+          href: element.href,
+          text: (element.text.substring(0, 50)),
+          path: element.file,
+          status: response.status,
+          statusText:
+            response.status > 199 && response.status < 400 ? 'Ok' : 'Fail'
+        }
+        return objResponse
+      })
+      .catch((err) => {
+        const objErr = {
+          href: element.href,
+          text: (element.text.substring(0, 50)),
+          path: element.file,
+          status: 'There was a problem with the Fetch request. ' + err,
+          statusText: 'Fail'
+        }
+        return objErr
+      })
+  })
+  return Promise.all(arrayPromise).then(response => {
+    console.log(response)
+  }).catch(err => {
+    console.log(err)
+  })
+}
+confirmOptions(objLinks)
 // readFileAndDirectory()
 // extractTheLinks(userPath)
 // console.log(readFileAndDirectory(userPath))
