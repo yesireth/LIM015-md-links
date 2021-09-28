@@ -30,7 +30,6 @@
     "chalk": "^4.1.2",
     "markdown-it": "^12.2.0",
     "marked": "^3.0.4",
-    "node-fetch": "^2.6.0",
     "test": "^0.6.0"
   },
   "scripts": {
