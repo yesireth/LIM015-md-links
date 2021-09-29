@@ -4,7 +4,6 @@ const path = require('path')
 // const resolve = require('path').resolve
 const fetch = require('node-fetch')
 // const userPath = process.argv[2]
-// onsole.log(marked)
 // ************ PARA SABER SI EXISTE LA RUTA *************** //
 const existsPath = (route) => {
   if (fs.existsSync(route)) return true
@@ -45,7 +44,6 @@ const extractTheLinks = (route) => {
   const regExFile = /\[(.*)\]( *)\(((((https?:\/\/)|(http?:\/\/)|(www\.))[^\s\n)]+)(?=\)))\)/gi
   const regExCorchetes = /\[(.*?)\]/gi
   const regExUrl = /(((https?:\/\/)|(http?:\/\/)|(www\.))[^\s\n)]+)(?=\))/gi
-
   readFileAndDirectory(route).forEach((file) => {
     const readFile = fs.readFileSync(file).toString()
     const matchFile = readFile.match(regExFile)
@@ -64,12 +62,13 @@ const extractTheLinks = (route) => {
       }
     }
   })
+
   return arryLinks
 }
-const router = 'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src'
-const objLinks = extractTheLinks(router)
+// const router = 'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src'
+// const objLinks = extractTheLinks(router)
 
-const confirmOptions = (links) => {
+const validateOptions = (links) => {
   const arrayPromise = links.map((element) => {
     return fetch(element.href)
       .then((response) => {
@@ -100,7 +99,8 @@ const confirmOptions = (links) => {
     console.log(err)
   })
 }
-confirmOptions(objLinks)
+
+// validateOptions(objLinks)
 // readFileAndDirectory()
 // extractTheLinks(userPath)
 // console.log(readFileAndDirectory(userPath))
@@ -116,5 +116,7 @@ module.exports = {
   pathAbsolute,
   pathConvertToAbs,
   patDirectory,
-  readFileAndDirectory
+  readFileAndDirectory,
+  validateOptions,
+  extractTheLinks
 }

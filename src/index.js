@@ -1,11 +1,21 @@
-module.exports = () => {
-  // ...
+const api = require('../src/app.js')
 
+const mdLinks = (path, options = { }) => {
+  return new Promise((resolve, reject) => {
+    if (api.existsPath(path)) {
+      let arrayLinks = []
+      if (!api.pathAbsolute(path)) {
+        path = api.pathConvertToAbs(path)
+      }
+      arrayLinks = api.extractTheLinks(path)
+      resolve(arrayLinks)
+    } else {
+      // eslint-disable-next-line prefer-promise-reject-errors
+      reject('No existe la ruta =(')
+    }
+  })
 }
-// const a = require('chalk')
-// const app = [1, 2, 3]
-// console.log(a.yellow(app))
-// console.log(process.argv)
-// const names = ['Luke', 'Eva', 'Phil', 'Maria', 'Carlos']
-// const [,,,...c] = names
-// console.log(c)
+// mdLinks('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src').then((res) => {
+//   console.log(res)
+// })
+module.exports = { mdLinks }
