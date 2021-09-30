@@ -7,8 +7,25 @@ const mdLinks = (path, options = { }) => {
       if (!api.pathAbsolute(path)) {
         path = api.pathConvertToAbs(path)
       }
-      arrayLinks = api.extractTheLinks(path)
-      resolve(arrayLinks)
+      arrayLinks = api.extractTheLinks(path)// aQui traemos los links de los archivos md
+      if (options.active) {
+        if (options.op === '--stats') {
+          console.log(arrayLinks)
+          const objResult = {
+            Total: 3,
+            Unique: 3
+          }
+          resolve(objResult)
+        }
+        if (options.op === '--validate') {
+          api.validateOptions(arrayLinks).then((resul) => {
+            arrayLinks = resul
+            resolve(arrayLinks)
+          })// llamamos al fetch
+        }
+      } else {
+        resolve(arrayLinks)
+      }
     } else {
       // eslint-disable-next-line prefer-promise-reject-errors
       reject('No existe la ruta =(')
