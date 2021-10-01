@@ -100,17 +100,6 @@ const validateOptions = (links) => {
   })
 }
 
-// validateOptions(objLinks)
-// readFileAndDirectory()
-// extractTheLinks(userPath)
-// console.log(readFileAndDirectory(userPath))
-// console.log(chalk.green(existsPath(userPath), ' existe la ruta '))
-// console.log(chalk.green(existsPath(userPath), '  no existe la ruta '))
-// console.log(chalk.red('La ruta es', pathAbsolute(userPath), ',no es absoluta'))
-// console.log(chalk.red('La ruta es', pathAbsolute(userPath), ',si es absoluta '))
-// console.log(chalk.blue('Ruta convertida en absoluta', pathConvertToAbs(userPath)))
-// console.log(chalk.blue('Es una directorio: ', patDirectory(userPath)))
-
 module.exports = {
   existsPath,
   pathAbsolute,

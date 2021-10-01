@@ -1,6 +1,6 @@
 const api = require('../src/app.js')
 
-const mdLinks = (path, options = { }) => {
+const mdLinks = (path, options = {}) => {
   return new Promise((resolve, reject) => {
     if (api.existsPath(path)) {
       let arrayLinks = []
@@ -10,18 +10,28 @@ const mdLinks = (path, options = { }) => {
       arrayLinks = api.extractTheLinks(path)// aQui traemos los links de los archivos md
       if (options.active) {
         if (options.op === '--stats') {
-          console.log(arrayLinks)
+          const linksUnicos = new Set(arrayLinks.map((arrayLinks) => arrayLinks.href))
           const objResult = {
-            Total: 3,
-            Unique: 3
+            Total: arrayLinks.length,
+            Unique: linksUnicos.size
           }
           resolve(objResult)
         }
         if (options.op === '--validate') {
-          api.validateOptions(arrayLinks).then((resul) => {
-            arrayLinks = resul
+          api.validateOptions(arrayLinks).then((result) => {
+            arrayLinks = result
             resolve(arrayLinks)
           })// llamamos al fetch
+        }
+        if ((options.op === '--stats' && options.opc === '--validate') ||
+        (options.op === '--validate' && options.opc === '--stats')) {
+          const linksUnicos = new Set(arrayLinks.map((arrayLinks) => arrayLinks.href))
+          console.log(linksUnicos)
+          const objResult = {
+            Total: arrayLinks.length,
+            Unique: linksUnicos.size
+          }
+          resolve(objResult)
         }
       } else {
         resolve(arrayLinks)
@@ -32,7 +42,5 @@ const mdLinks = (path, options = { }) => {
     }
   })
 }
-// mdLinks('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src').then((res) => {
-//   console.log(res)
-// })
+
 module.exports = { mdLinks }
