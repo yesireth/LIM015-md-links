@@ -69,7 +69,7 @@ const extractTheLinks = (route) => {
 // const objLinks = extractTheLinks(router)
 
 const validateOptions = (links) => {
-  const arrayPromise = links.map((element) => {
+  return Promise.all(links.map((element) => {
     return fetch(element.href)
       .then((response) => {
         const objResponse = {
@@ -92,12 +92,7 @@ const validateOptions = (links) => {
         }
         return objErr
       })
-  })
-  return Promise.all(arrayPromise).then(response => {
-    console.log(response)
-  }).catch(err => {
-    console.log(err)
-  })
+  }))
 }
 
 module.exports = {

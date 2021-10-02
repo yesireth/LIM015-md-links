@@ -9,29 +9,30 @@ const mdLinks = (path, options = {}) => {
       }
       arrayLinks = api.extractTheLinks(path)// aQui traemos los links de los archivos md
       if (options.active) {
-        if (options.op === '--stats') {
-          const linksUnicos = new Set(arrayLinks.map((arrayLinks) => arrayLinks.href))
+        if (options.op1 === '--stats' && options.countOptions === 1) {
+          const linksUnique = new Set(arrayLinks.map((arrayLinks) => arrayLinks.href))
           const objResult = {
             Total: arrayLinks.length,
-            Unique: linksUnicos.size
+            Unique: linksUnique.size
           }
           resolve(objResult)
-        }
-        if (options.op === '--validate') {
+        } else if (options.op1 === '--validate' && options.countOptions === 1) {
           api.validateOptions(arrayLinks).then((result) => {
             arrayLinks = result
             resolve(arrayLinks)
           })// llamamos al fetch
-        }
-        if ((options.op === '--stats' && options.opc === '--validate') ||
-        (options.op === '--validate' && options.opc === '--stats')) {
-          const linksUnicos = new Set(arrayLinks.map((arrayLinks) => arrayLinks.href))
-          console.log(linksUnicos)
-          const objResult = {
-            Total: arrayLinks.length,
-            Unique: linksUnicos.size
-          }
-          resolve(objResult)
+        } else if (((options.op1 === '--stats' && options.op2 === '--validate') ||
+        (options.op1 === '--validate' && options.op2 === '--stats')) && options.countOptions === 2) {
+          api.validateOptions(arrayLinks).then((result) => {
+            arrayLinks = result
+            const linksUnicos = new Set(arrayLinks.map((arrayLinks) => arrayLinks.href))
+            const objResult = {
+              Total: arrayLinks.length,
+              Unique: linksUnicos.size,
+              Broken: arrayLinks.filter(e => e.status > 400).length
+            }
+            resolve(objResult)
+          })// llamamos al fetch
         }
       } else {
         resolve(arrayLinks)

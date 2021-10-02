@@ -12,11 +12,11 @@ const validate = (args) => {
   let mensaje = ''
   if (args.length === 0) {
     mensaje = templateNull
-    return mensaje
+    console.log(mensaje)
   } else if (args.length === 1) {
     if (args[0] === '--help') {
       mensaje = templateHelp
-      return mensaje
+      console.log(mensaje)
     } else {
       api.mdLinks(args[0], { active: false })
         .then((arrayResponse) => {
@@ -25,19 +25,19 @@ const validate = (args) => {
     }
   } else if (args.length === 2) {
     api.mdLinks(args[0], {
-      op: args[1],
+      op1: args[1],
       active: true,
-      countOption: 1
+      countOptions: 1
     })
       .then((arrayResponse) => {
         console.log(arrayResponse)
       })
   } else if (args.length === 3) {
     api.mdLinks(args[0], {
-      op: args[1],
-      opc: args[2],
+      op1: args[1],
+      op2: args[2],
       active: true,
-      countOption: 2
+      countOptions: 2
     }).then((arrayResponse) => {
       console.log(arrayResponse)
     })
@@ -45,3 +45,4 @@ const validate = (args) => {
 }
 
 validate(args)
+// C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src
