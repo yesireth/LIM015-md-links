@@ -1,7 +1,7 @@
+#!/usr/bin/env node
 const api = require('../src/index.js')
 const args = process.argv.slice(2)
 const chalk = require('chalk')
-
 const templateHelp = `
     ${chalk.blueBright('(◕‿‿◕｡)━━━━ ☆ ☆ ˚ஐ₊✧˳ஐ༚✧˚ஐ₊✧˳ஐ༚✧ ━━━ HELP ━━━ ˚(◕‿‿◕｡)')} 
     `

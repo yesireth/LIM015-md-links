@@ -70,6 +70,7 @@ const extractTheLinks = (route) => {
 
 const validateOptions = (links) => {
   return Promise.all(links.map((element) => {
+    console.log(element.href)
     return fetch(element.href)
       .then((response) => {
         const objResponse = {
