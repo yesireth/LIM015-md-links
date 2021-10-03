@@ -115,3 +115,8 @@ describe('extractTheLinks', () => {
     expect(path.extractTheLinks('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\')).toStrictEqual(objLinks)
   })
 })
+describe('validateOptions', () => {
+  it('Deberia ser una función', () => {
+    expect(typeof path.validateOptions).toBe('function')
+  })
+})
