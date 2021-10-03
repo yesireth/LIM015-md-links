@@ -3,10 +3,12 @@ const api = require('../src/index.js')
 const args = process.argv.slice(2)
 const chalk = require('chalk')
 const templateHelp = `
-    ${chalk.blueBright('(◕‿‿◕｡)━━━━ ☆ ☆ ˚ஐ₊✧˳ஐ༚✧˚ஐ₊✧˳ஐ༚✧ ━━━ HELP ━━━ ˚(◕‿‿◕｡)')} 
+    ${chalk.yellowBright('(◕‿‿◕｡) ━━ HELP ━━   ☆ ☆ ˚ஐ₊✧˳ஐ༚✧˚ஐ₊✧˳ஐ༚✧ ━━━ INGRESA LOS SIGUIENTES CAMPOS ━━━  ˚(◕‿‿◕｡)')} 
+    ${chalk.blueBright('  (❣◕ ‿ ◕❣)━━ UNA RUTA ━━   ☆ ☆ ˚ஐ₊✧˳ஐ༚✧˚ஐ₊✧˳ஐ༚✧   ━━━ --VALIDATE   ━━━ ˚(❣◕ ‿ ◕❣)')} 
+    ${chalk.redBright('   (◕‿‿◕｡) ━━ --STATS ━━ ☆ ☆ ˚ஐ₊✧˳ஐ༚✧˚ஐ₊✧˳ஐ༚✧    ━━━     --VALIDATE --STATS━━━  ˚(◕‿‿◕｡)')} 
     `
 const templateNull = `
-    ${chalk.redBright('(◕‿‿◕｡)━━━━ ☆ ☆ ˚ஐ₊✧˳ஐ༚✧˚ஐ₊✧˳ஐ༚✧ ━━━ INGRESE UNA RUTA  ━━━ ˚(◕‿‿◕｡)')} 
+    ${chalk.greenBright('(◕‿‿◕｡)━━ INGRESE UNA RUTA VALIDA━━ ☆ ☆ ˚ஐ₊✧˳ஐ༚✧˚ஐ₊✧˳ஐ༚✧ O ━━━ --HELP  ━━━ ˚(◕‿‿◕｡)')} 
     `
 const validate = (args) => {
   let mensaje = ''

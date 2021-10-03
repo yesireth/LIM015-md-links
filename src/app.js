@@ -95,7 +95,7 @@ const validateOptions = (links) => {
       })
   }))
 }
-
+// console.log(extractTheLinks('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\'))
 module.exports = {
   existsPath,
   pathAbsolute,
