@@ -26,3 +26,29 @@ describe('validateOptions', () => {
       })
   })
 })
+// mockResolvedValueOnce
+// mockReturnValueOnce
+describe('validateOptions', () => {
+  it('Deberia ser un statusText : 404', () => {
+    const linkObj = [{
+      href: 'https://es.wikipedia.org/wikhhhhhhhhhhhi/Markdown',
+      text: 'Markdown',
+      file: 'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\'
+    }]
+    const objResponse = [{
+      href: 'https://es.wikipedia.org/wikhhhhhhhhhhhi/Markdown',
+      text: 'Markdown',
+      path: 'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\',
+      status: 404,
+      statusText: 'Fail'
+    }]
+    fetch.mockReturnValueOnce(Promise.resolve({
+      status: 404,
+      statusText: 'Fail'
+    }))
+    return path.validateOptions(linkObj)
+      .then((result) => {
+        expect(result).toEqual(objResponse)
+      })
+  })
+})

@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/yesireth/LIM015-md-links.git"
   },
-  "author": "yesireth",
+  "author": "Yesireth Suarez",
   "license": "ISC",
   "bin": {
     "md-links":"./src/cli.js"
