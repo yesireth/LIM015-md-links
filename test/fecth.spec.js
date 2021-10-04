@@ -1,5 +1,5 @@
-jest.mock('node-fetch')
 const fetch = require('node-fetch')
+jest.mock('node-fetch')
 const path = require('../src/app.js')
 
 describe('validateOptions', () => {
@@ -16,7 +16,7 @@ describe('validateOptions', () => {
       status: 200,
       statusText: 'Ok'
     }]
-    fetch.mockReturnValue(() => Promise.resolve({
+    fetch.mockReturnValue(Promise.resolve({
       status: 200,
       statusText: 'OK'
     }))
