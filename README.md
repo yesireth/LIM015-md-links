@@ -110,6 +110,13 @@ $ md-links
 
 ## 5 Instalación
 Para instalar la librería use el comando:
+```sh
+$ npm i md-links-yesireth
+```
+
+
+
+npm i md-links-yesireth
 
 
 
