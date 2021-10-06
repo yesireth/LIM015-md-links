@@ -34,7 +34,7 @@ const mdLinks = (path, options = {}) => {
             resolve(objResult)
           })// llamamos al fetch
         }
-      } else {
+      } else if (options.active === false) {
         resolve(arrayLinks)
       }
     } else {
@@ -43,5 +43,4 @@ const mdLinks = (path, options = {}) => {
     }
   })
 }
-
 module.exports = { mdLinks }

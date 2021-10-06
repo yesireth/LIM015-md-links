@@ -14,7 +14,6 @@ const validate = (args) => {
   let mensaje = ''
   if (args.length === 0) {
     mensaje = templateNull
-    console.log(mensaje)
   } else if (args.length === 1) {
     if (args[0] === '--help') {
       mensaje = templateHelp

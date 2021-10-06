@@ -36,6 +36,10 @@ const readFileAndDirectory = (route) => {
         newArray.push(arrayJoin)
       }
     })
+  } else {
+    if (path.extname(route) === '.md') {
+      newArray.push(route)
+    }
   }
   return newArray
 }

@@ -8,7 +8,8 @@ describe('validateOptions', () => {
       href: 'https://github.com/Laboratoria/course-parser',
       text: '`course-parser`',
       file: 'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src'
-    }]
+    }
+    ]
     const objResponse = [{
       href: 'https://github.com/Laboratoria/course-parser',
       text: '`course-parser`',

@@ -49,10 +49,10 @@ describe('readFileAndDirectory ', () => {
   })
   it('Deberia retonar un array de archivos md', () => {
     const arrayMd = [
-      'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\archivo\\archivo 2\\archivo.md',
-      'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\archivo\\archivo 2\\mdlinks.md'
+      'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\archivo\\archivo2\\archivo.md',
+      'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\archivo\\archivo2\\mdlinks.md'
     ]
-    expect(path.readFileAndDirectory('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src')).toEqual(arrayMd)
+    expect(path.readFileAndDirectory('C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\archivo\\archivo2')).toEqual(arrayMd)
   })
 })
 /** *************Extrae los links**************************/
