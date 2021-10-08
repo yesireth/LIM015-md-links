@@ -69,8 +69,6 @@ const extractTheLinks = (route) => {
 
   return arryLinks
 }
-// const router = 'C:\\Users\\51944\\laboratoria\\LIM015-md-links\\src\\'
-// const objLinks = extractTheLinks(router)
 
 const validateOptions = (links) => {
   return Promise.all(links.map((element) => {

@@ -116,9 +116,6 @@ $ npm i md-links-yesireth
 
 
 
-npm i md-links-yesireth
-
-
 
 ## Creada: Yesireth Suarez 💗👩‍💻
 ## En : Laboratoria, generación LIM-015 de Perú 

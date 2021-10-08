@@ -14,10 +14,12 @@ const validate = (args) => {
   let mensaje = ''
   if (args.length === 0) {
     mensaje = templateNull
+    console.log(mensaje)
+    return console.log(mensaje)
   } else if (args.length === 1) {
     if (args[0] === '--help') {
       mensaje = templateHelp
-      console.log(mensaje)
+      return console.log(mensaje)
     } else {
       api.mdLinks(args[0], { active: false })
         .then((arrayResponse) => {
